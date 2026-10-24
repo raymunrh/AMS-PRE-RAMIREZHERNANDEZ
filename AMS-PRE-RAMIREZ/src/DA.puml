@@ -1,0 +1,16 @@
+@startuml
+start
+:El usuario registrado selecciona un producto disponible;
+:El usuario especifica la cantidad deseada;
+:El sistema intenta generar un nuevo pedido con la fecha actual;
+
+if (¿El user_id y product_id existen en la base de datos?) then (Sí)
+  :El sistema registra en 'orders' la asociación;
+  note right: Guarda user_id, product_id, quantity y order_date
+  :El sistema devuelve un ID único de confirmación;
+else (No)
+  :El sistema bloquea la transacción;
+  note right: Evita registros huérfanos e inconsistencias (RNF-01)
+endif
+stop
+@enduml

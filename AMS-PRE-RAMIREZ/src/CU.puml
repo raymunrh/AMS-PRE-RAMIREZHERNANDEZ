@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+actor "Usuario Registrado" as User
+
+rectangle "Sistema de Gestión de Pedidos" {
+  usecase "Registrar y consultar información básica" as UC1
+  usecase "Visualizar catálogo de productos activos" as UC2
+  usecase "Crear pedido (Asociar usuario y producto)" as UC3
+  usecase "Consultar historial de transacciones" as UC4
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+@enduml

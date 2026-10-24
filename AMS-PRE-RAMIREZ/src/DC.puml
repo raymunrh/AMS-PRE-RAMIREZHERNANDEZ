@@ -1,0 +1,28 @@
+@startuml
+class User {
+  - id : Integer
+  - name : String
+  - email : String
+  + consultarInformacion() : void
+  + consultarHistorial() : List<Order>
+}
+
+class Product {
+  - id : Integer
+  - name : String
+  - price : Float
+  + visualizarCatalogo() : void
+}
+
+class Order {
+  - id : Integer
+  - user_id : Integer
+  - product_id : Integer
+  - quantity : Integer
+  - order_date : Date
+  + crearPedido() : String
+}
+
+User "1" -- "0..*" Order : realiza >
+Product "1" -- "0..*" Order : contenido en >
+@enduml

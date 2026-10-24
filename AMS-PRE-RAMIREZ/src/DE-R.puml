@@ -1,0 +1,27 @@
+@startuml
+entity "users" as users {
+  * id : INT <<PK>>
+  --
+  name : VARCHAR
+  email : VARCHAR
+}
+
+entity "products" as products {
+  * id : INT <<PK>>
+  --
+  name : VARCHAR
+  price : DECIMAL
+}
+
+entity "orders" as orders {
+  * id : INT <<PK>>
+  --
+  user_id : INT <<FK>>
+  product_id : INT <<FK>>
+  quantity : INT
+  order_date : DATETIME
+}
+
+users ||--o{ orders : "posee"
+products ||--o{ orders : "pertenece a"
+@enduml
